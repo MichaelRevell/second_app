@@ -1,22 +1,16 @@
 <% if signed_in? %>
-	<table class="front" summary="For signed-in users">
-		<tr>
-			<td class="main">
-				<h1 class="micropost">What's up?</h1>
-				<%= render 'shared/micropost_form' %>
-				
-				 <% unless @user.microposts.empty? %>
-			        <table class="microposts" summary="User microposts">
-			          <%= render @microposts %>
-			        </table>
-			        <%= will_paginate @microposts %>
-			      <% end %>
-			</td>
-			<td class="sidebar round">
-				<%= render 'shared/user_info' %>
-			</td>
-		</tr>
-	</table>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">What's up?</h1>
+        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/feed' %>
+      </td>
+	<td class="sidebar round">
+		<%= render 'shared/user_info' %>
+	</td>
+	</tr>
+</table>
 <% else %>
 	<h1>Sample App</h1>
 	
